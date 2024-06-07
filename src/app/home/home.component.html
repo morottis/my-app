@@ -1,0 +1,13 @@
+<section>
+    <p>HOME.COMPONENT WORK</p>
+  </section>
+  <section>
+    <form>
+      <input type="text" placeholder="Filter by city" id="input">
+      <button type="button" (click)="cliccato()">Premi per cambiare titolo</button>
+      <button class="primary" id="button" type="button" (click)="verifica()">{{scritta}}</button>
+    </form>
+  </section>
+  <section class="results">
+    <app-housing-location></app-housing-location>
+  </section>
