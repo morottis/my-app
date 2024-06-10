@@ -6,7 +6,8 @@ import { Component, EventEmitter, Output} from '@angular/core';
   standalone: true,
   imports: [CommonModule , NgFor],
   templateUrl: './housing-location.component.html',
-  styleUrl: './housing-location.component.css'
+  styleUrl: './housing-location.component.css',
+
 })
 export class HousingLocationComponent {
   testo :Array<string> =  ['string 2 ' , 'strin3', 'string4']; 

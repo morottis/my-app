@@ -323,10 +323,13 @@
     </div>
   </div>
 </main>-->
-
+<router-outlet>
 <main>
   <p >{{p}}</p>
+  <button [routerLink]='"about/"+scritta_per_about'>Link </button>
+  <!--
     <app-home [data]="p" (evento)="Prendo_dati($event)"></app-home>
+    <app-about></app-about> -->
 </main>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
@@ -336,6 +339,4 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-
-<router-outlet />
+<router-outlet/>

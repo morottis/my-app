@@ -2,6 +2,8 @@ import { Component, Input, Output , EventEmitter } from '@angular/core';
 import { HousingLocationComponent } from '../housing-location/housing-location.component';
 import { CommonModule } from '@angular/common';
 import { Housinglocation } from '../housinglocation';
+import { PrimoServiceService } from '../service/primo-service.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,17 +12,30 @@ import { Housinglocation } from '../housinglocation';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
+
 export class HomeComponent {
   @Input() data : any ;
-   
   @Output() evento = new EventEmitter<string>(); 
-
   scritta_da_emettere : string = "dato emesso da Homecomponent"; 
+  title :string ; 
+  scritta_per_about :string = 'SCRITTA PROVENIENETE DA HOMEPAGE'; 
+
+  get Title() {
+    return this.title
+  }
+  constructor( private primo_servizio : PrimoServiceService , private route:  ActivatedRoute)
+  {
+    this.title = primo_servizio.titolo; 
+    primo_servizio.scritta_da_prendere = this.scritta_per_about; 
+    console.log(primo_servizio.scritta_da_prendere);  
+    console.log(this.route.snapshot.paramMap.get('id'));// stampo id 
+  }
 
   cliccato()
   {
     this.evento.emit(this.scritta_da_emettere); 
   }
+
 
   readonly baseUrl = 'https://angular.io/assets/images/tutorials/faa';
   scritta : string = 'search'; 
@@ -50,4 +65,5 @@ export class HomeComponent {
     wifi: true,
     laundry: false,
   };
+
 }
